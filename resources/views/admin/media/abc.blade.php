@@ -1,0 +1,64 @@
+<div id="drop_file_zone" ondrop="upload_file(event)" ondragover="return false">
+    <div id="drag_upload_file">
+        <p>Drop file(s) here</p>
+        <p>or</p>
+        <p><input type="button" value="Select File(s)" onclick="file_explorer();" /></p>
+        <input type="file" id="selectfile" multiple />
+    </div>
+</div>
+
+<style>
+    #drop_file_zone {
+    background-color: #EEE;
+    border: #999 5px dashed;
+    width: 290px;
+    height: 200px;
+    padding: 8px;
+    font-size: 18px;
+}
+#drag_upload_file {
+  width:50%;
+  margin:0 auto;
+}
+#drag_upload_file p {
+  text-align: center;
+}
+#drag_upload_file #selectfile {
+  display: none;
+}
+</style>
+ 
+<script>
+    function upload_file(e) {
+    e.preventDefault();
+    ajax_file_upload(e.dataTransfer.files);
+}
+  
+function file_explorer() {
+    document.getElementById('selectfile').click();
+    document.getElementById('selectfile').onchange = function() {
+        files = document.getElementById('selectfile').files;
+        ajax_file_upload(files);
+    };
+}
+  
+function ajax_file_upload(files_obj) {
+    if(files_obj != undefined) {
+        var form_data = new FormData();
+        for(i=0; i<files_obj.length; i++) {
+            form_data.append('file[]', files_obj[i]);
+        }
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "ajax.php", true);
+        xhttp.onload = function(event) {
+            if (xhttp.status == 200) {
+                alert(this.responseText);
+            } else {
+                alert("Error " + xhttp.status + " occurred when trying to upload your file.");
+            }
+        }
+ 
+        xhttp.send(form_data);
+    }
+}
+</script>

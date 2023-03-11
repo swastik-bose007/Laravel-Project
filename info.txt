@@ -1,0 +1,97 @@
+// public function login(Request $request) {
+    //     try {
+    //         /* data validation */
+    //         $validator = Validator::make($request->all(), [
+    //                             'email'     => 'required|email|max:60',
+    //                             'password'  => 'required|max:30',
+    //                         ]);
+
+    //         if ($validator->fails()) :
+    //             $response = [
+    //                 'status'        => false,
+    //                 'status_code'   => 201,
+    //                 'message'       => $validator->messages()->first(),
+    //                 'data'          => [],
+    //                 'request_data'  => $request->all()
+    //             ];
+    //             return $this->controller->sendResponse($response);
+    //         else :
+    //             /* request data collection */
+    //             $email = $request->input('email');
+    //             $password = $request->input('password');
+
+    //             $user = User::where('email', $email)->first();
+
+    //             if($user) {
+    //                 // token
+    //                 $token = Str::random(60);
+
+    //                 $user->api_token = $token;
+    //                 $user->save();
+
+
+    //                 $response = [
+    //                     'status'        => true,
+    //                     'status_code'   => 200,
+    //                     'message'       => $ex->getMessage(),
+    //                     'data'          => [],
+    //                     'request_data'  => $request->all()
+    //                 ];
+    //             } else {
+    //                 $response = [
+    //                     'status'        => true,
+    //                     'status_code'   => 200,
+    //                     'message'       => $ex->getMessage(),
+    //                     'data'          => [],
+    //                     'request_data'  => $request->all()
+    //                 ];
+    //             }
+
+    //             return response()->json($response);
+    //         endif;
+    //     } catch (Exception $ex) {
+    //         $response = [
+    //             'status'        => false,
+    //             'status_code'   => 201,
+    //             'message'       => $ex->getMessage(),
+    //             'data'          => [],
+    //             'request_data'  => $request->all()
+    //         ];
+    //         return $this->controller->sendResponse($response);
+    //     }
+    // }
+
+    // public function register(Request $request) {
+    //     try {
+    //         /* data validation */
+    //         $validator = Validator::make($request->all(), [
+    //                             'first_name'    => 'required|string|max:60',
+    //                             'last_name'     => 'required|string|max:60',
+    //                             'email'         => 'required|email|unique:tb_users,email|max:60',
+    //                             'password'      => 'required|min:6|max:20'
+    //                         ]);
+
+    //         if ($validator->fails()) :
+    //             return redirect()->back()->withErrors($validator)->withInput();
+    //         else:
+    //             $user = new User;
+    //             $user->first_name   = ucfirst($request->input('first_name'));
+    //             $user->email        = strtolower($request->input('email'));
+    //             $user->user_type    = $request->input('user_type');
+    //             $user->password     = Hash::make($request->input('password'));
+    //             $user->save();
+
+    //             $request->session()->flash('success', 'Successfully created.');
+    //             return redirect('admin/user-management');
+    //         endif;
+    //     } catch (Exception $ex) {
+    //         $response = [
+    //             'status'        => false,
+    //             'status_code'   => 201,
+    //             'message'       => $ex->getMessage(),
+    //             'data'          => [],
+    //             'request_data'  => $request->all()
+    //         ];
+    //         return $this->controller->sendResponse($response);
+    //     }
+    // }
