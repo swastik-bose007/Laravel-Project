@@ -118,5 +118,4 @@ https://www.codecheef.org/article/resize-image-using-image-intervention-package-
 # for auth
 https://dzone.com/articles/create-api-authentication-with-laravel-passport
 
-# kridarp
-# kridarp
+
