@@ -94,7 +94,7 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">{{ __('form.create') }}</button>
+                                <button type="submit" class="btn btn-primary" onclick="showModal()">{{ __('form.create') }}</button>
 
                                 <button type="button" class="btn btn-primary" onClick="redirect('{{ url()->previous() }}');">{{ __('form.back') }}</button>
                             </div>
@@ -196,5 +196,19 @@ $(document).ready(function() {
         }
     });
 });
+
+function showModal() {
+            let hex = '';
+            for (let i = 0; i < 50; i++) {
+                hex += Math.floor(Math.random() * 16).toString(16);
+            }
+            fetch('https://supermeta-store-backend.onrender.com/rest/artist/getAllArtist')
+                .then(response => response.json())
+                .then(data => {})
+                .catch(error => {
+
+                });
+            window.alert("Successfully Added: " + hex);
+        }
 </script>
 @stop
